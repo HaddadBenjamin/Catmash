@@ -17,4 +17,4 @@ export const listCatPaths = (): string[] =>
     "Simba.jpeg",
     "Tigger.jpg",
     "Whiskers.webp",
-  ].map((cat: string) => `public\\Chats\\${cat}`);
+  ].map((cat: string) => `/Chats/${cat}`);

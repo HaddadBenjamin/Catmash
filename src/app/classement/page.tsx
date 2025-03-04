@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/designSystem/Button/Button";
+import { Button } from "@/components/designSystem/Button";
 import { listCatPaths } from "@/utils/listCatPaths";
 import { useRouter } from "next/navigation";
 
