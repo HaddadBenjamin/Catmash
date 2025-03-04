@@ -6,7 +6,5 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const router = useRouter();
 
-  return (
-    <Button onClick={() => router.push("/classement")}>Button classement</Button>
-  );
+  return <Button onClick={() => router.push("/")}>Button accueuil</Button>;
 }

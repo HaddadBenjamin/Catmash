@@ -1,0 +1,14 @@
+.container {
+  background-color: #00102e;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.custom-button:hover {
+  background-color: #00081e;
+}
