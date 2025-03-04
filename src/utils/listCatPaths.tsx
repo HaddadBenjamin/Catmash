@@ -1,0 +1,20 @@
+export const listCatPaths = (): string[] =>
+  [
+    "Bella.webp",
+    "Chloe.webp",
+    "Cleo.jpeg",
+    "Daisy.jpg",
+    "Felix.webp",
+    "Leo.jpg",
+    "Luna.png",
+    "Max.jpg",
+    "Milo.jpg",
+    "Misty.jpg",
+    "Nala.webp",
+    "Oliver.jpg",
+    "Rocky.jpg",
+    "Shadow.jpg",
+    "Simba.jpeg",
+    "Tigger.jpg",
+    "Whiskers.webp",
+  ].map((cat: string) => `public\\Chats\\${cat}`);
