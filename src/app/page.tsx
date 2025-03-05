@@ -16,7 +16,6 @@ export default function Home() {
     setCats(initialCats?.images ?? []);
   }, [initialCats]);
 
-  console.log(cats);
   const onLike = (catPath: string) => {
     setCats(shuffle(cats));
     // mettre à jour les votes pour le chat catPath ++
