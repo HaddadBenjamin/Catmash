@@ -8,12 +8,12 @@ interface Props extends ICatRank {
   index: number;
 }
 const RankCard = ({ index, url, voteCount, id }: Props) => (
-  <div className={cn(cardStyles.card, styles.container)} key={id}>
+  <>
     <div className={styles.level}>{index + 1}</div>
     <CardImage imagePath={url} name={id} />
     <p className={cardStyles.cardName}>{`Chat ${index + 1}`}</p>
     <div className={styles.score}>Score: {voteCount}</div>
-  </div>
+  </>
 );
 
 export default RankCard;

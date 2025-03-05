@@ -23,5 +23,8 @@ Créer les tets
 Animation de win ?
 Bonus: Storybook, ex:https://design-system-storybook.netlify.app/?path=/docs/formulaires-button--color
 Quelques animations
-
-Mardi: 2hn
+Modifier l'ordre des ranbks si on affiche que un élément sur le top three
+order by id aussi
+rename le css
+Mardi: 2h
+Mercredi: 3-4h
