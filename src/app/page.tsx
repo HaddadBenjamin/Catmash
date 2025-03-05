@@ -2,6 +2,7 @@
 
 import { shuffle } from "@/shared/utils/array";
 import styles from "./page.module.css";
+import pageStyles from "../styles/page.module.css";
 import useGetCats from "@/domains/cats/hooks/useGetCats";
 import useLocalStorage from "@/shared/hooks/useLocalStorage";
 import useCatRanks from "@/domains/cats/hooks/useCatRanks";
@@ -44,7 +45,7 @@ export default function Home() {
   return (
     <Layout title="Cat Mash: vote pour ton chat préféré">
       <div className={styles.dashedLine} />
-      <div className={styles.container}>
+      <div className={pageStyles.pageContainer}>
         <Header />
 
         {loading ? (

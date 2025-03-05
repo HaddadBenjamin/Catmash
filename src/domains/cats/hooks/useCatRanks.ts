@@ -9,7 +9,7 @@ const useCatRanks = (
 
   useEffect(() => {
     if (catRanks.length === 0)
-      setCatRanks(cats.map(({ id }) => ({ id, voteCount: 0 })));
+      setCatRanks(cats.map((cat) => ({ ...cat, voteCount: 0 })));
   }, [cats.length]);
 
   return [catRanks, setCatRanks];

@@ -7,7 +7,6 @@ export interface ICatResponse {
   images: ICat[];
 }
 
-export interface ICatRank {
-  id: string;
+export interface ICatRank extends ICat {
   voteCount: number;
 }

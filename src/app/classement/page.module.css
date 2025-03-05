@@ -1,0 +1,10 @@
+.container {
+  padding-left: 37px !important;
+}
+
+.rankContainer {
+  gap: 12px 8px;
+  display: grid !important;
+  grid-auto-rows: minmax(100, auto);
+  grid-template-columns: repeat(3, 1fr) !important;
+}

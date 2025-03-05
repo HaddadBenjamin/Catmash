@@ -1,9 +1,10 @@
 "use client";
 
 import { Button } from "@/designSystem/components/Button";
-import Image from "next/image";
 import styles from "./index.module.css";
 import cn from "classnames";
+import cardStyles from "@/styles/card.module.css";
+import CardImage from "@/shared/components/CardImage";
 
 interface MatchCardProps {
   name: string;
@@ -23,20 +24,13 @@ export default function MatchCard({
   return (
     <div
       className={cn(
-        styles.matchCardContainer,
+        cardStyles.card,
         state === "win" && styles.win,
         state === "loose" && styles.lose
       )}
     >
-      <Image
-        className={styles.matchImage}
-        src={imagePath}
-        alt={name}
-        width={200}
-        height={200}
-        style={{ minHeight: "200px", width: "auto", objectFit: "cover" }}
-      />
-      <p className={styles.matchName}>{name}</p>
+      <CardImage imagePath={imagePath} name={name} />
+      <p className={cardStyles.cardName}>{name}</p>
       <Button onClick={() => onLike(id)}>J’aime</Button>
     </div>
   );
