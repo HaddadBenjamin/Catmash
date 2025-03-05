@@ -4,15 +4,17 @@
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  width: 200px;
+  width: 300pxs;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .matchImage {
   width: 100%;
   height: auto;
-  max-width: 120px;
+  max-width: 200px;
+  min-width: 200px;
   margin-bottom: 10px;
+  max-height: 200px;
 }
 
 .matchName {

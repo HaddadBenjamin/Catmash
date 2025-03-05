@@ -1,17 +1,26 @@
 "use client";
 
 import MatchCard from "@/components/molecules/MatchCard";
-// import { shuffle } from "@/utils/array";
-import { listCatPaths } from "@/utils/listCatPaths";
+import { shuffle } from "@/shared/utils/array";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
+import { useEffect, useState } from "react";
+import useGetCats from "@/domains/cats/hooks/useGetCats";
+import { ICat } from "@/domains/cats/index.model";
 
 export default function Home() {
   const router = useRouter();
-  const cats = listCatPaths();
+  const { data: initialCats, loading, error } = useGetCats();
+  const [cats, setCats] = useState<ICat[]>([]);
+  useEffect(() => {
+    setCats(initialCats?.images ?? []);
+  }, [initialCats]);
 
-  // Après le vote : update + mettre à jour
-  // const updateCatFiles = () => (cats = shuffle(cats));
+  console.log(cats);
+  const onLike = (catPath: string) => {
+    setCats(shuffle(cats));
+    // mettre à jour les votes pour le chat catPath ++
+  };
 
   return (
     <>
@@ -21,10 +30,24 @@ export default function Home() {
           <h1>CATMASH</h1>
         </header>
 
-        <main className={styles.matchContainer}>
-          <MatchCard name="Chat 1" imagePath={cats.at(0)!} />
-          <MatchCard name="Chat 2" imagePath={cats.at(-1)!} />
-        </main>
+        {loading ? (
+          "... chargement"
+        ) : error ? (
+          `error: ${error}`
+        ) : (
+          <main className={styles.matchContainer}>
+            <MatchCard
+              name="Chat 1"
+              imagePath={cats.at(0)?.url ?? "/logo.png"}
+              onLike={onLike}
+            />
+            <MatchCard
+              name="Chat 2"
+              imagePath={cats.at(-1)?.url ?? "/logo.png"}
+              onLike={onLike}
+            />
+          </main>
+        )}
 
         <footer className={styles.footer}>
           <button

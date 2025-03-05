@@ -4,6 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Cat Mash",
   description: "Voter pour votre chat préféré",
+  icons: "/logo.png",
 };
 
 export default function RootLayout({
