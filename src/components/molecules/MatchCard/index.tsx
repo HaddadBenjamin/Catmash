@@ -3,17 +3,31 @@
 import { Button } from "@/shared/components/designSystem/Button";
 import Image from "next/image";
 import styles from "./index.module.css";
+import cn from "classnames";
 
 interface MatchCardProps {
   name: string;
   imagePath: string;
   id: string;
   onLike: (imagePath: string) => void;
+  state?: "win" | "loose";
 }
 
-export default function MatchCard({ name, imagePath, onLike, id }: MatchCardProps) {
+export default function MatchCard({
+  name,
+  imagePath,
+  onLike,
+  id,
+  state,
+}: MatchCardProps) {
   return (
-    <div className={styles.matchCard}>
+    <div
+      className={cn(
+        styles.matchCardContainer,
+        state === "win" && styles.win,
+        state === "loose" && styles.lose
+      )}
+    >
       <Image
         className={styles.matchImage}
         src={imagePath}

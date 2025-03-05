@@ -1,6 +1,7 @@
 import useFetch, { IUseFetchResponse } from "@/shared/hooks/useFetch";
 import { ICat, ICatResponse } from "../index.model";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { shuffle } from "@/shared/utils/array";
 
 const useGetCats = (): IUseFetchResponse<ICatResponse> & {
   cats: ICat[];
@@ -12,7 +13,7 @@ const useGetCats = (): IUseFetchResponse<ICatResponse> & {
   );
 
   useEffect(() => {
-    setCats(data?.images ?? []);
+    setCats(shuffle(data?.images ?? []));
   }, [data]);
 
   return { data, cats, setCats, loading, error };

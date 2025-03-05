@@ -1,43 +1,49 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    min-height: 100vh;
-    background: #00102e;
-    color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  background: #00102e;
+  color: white;
+  min-height: calc(100vh - 20px);
+}
+
+.dashedLine {
+  width: 2px;
+  height: calc(100vh - 212px);
+  border-left: 2px dashed white;
+  position: absolute;
+  left: 50%;
+  top: 136px;
+  transform: translateX(-50%);
+  display: none;
+}
+
+@media (min-width: 560px) {
+  .dashedLine {
+    display: block;
   }
-  
-  .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .logo {
-    width: 50px;
-  }
-  
-  .matchContainer {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-  
-  .footer {
-    margin-top: 30px;
-  }
-  
-  .rankingButton {
-    background-color: white;
-    color: #00102e;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    font-weight: bold;
-  }
+}
+.matchContainer {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.footer {
+  margin-top: 30px;
+}
+
+.rankingButton {
+  background-color: white;
+  color: #00102e;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}

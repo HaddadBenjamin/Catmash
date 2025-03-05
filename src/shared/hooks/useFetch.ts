@@ -26,7 +26,7 @@ const useFetch = <T>(url: string): IUseFetchResponse<T> => {
       }
     }
     fetchData();
-  }, []);
+  }, [url]);
 
   return { data, error, loading };
 };

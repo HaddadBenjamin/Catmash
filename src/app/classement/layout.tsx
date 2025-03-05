@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Cat Mash - Voter pour votre chat préféré",
-  description: "Voter pour votre chat préféré",
-  icons: "/logo.png",
+  title: "Cat Mash - Classement des chats",
 };
 
 export default function RootLayout({
@@ -13,7 +10,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body>{children}</body>
     </html>
   );

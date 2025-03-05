@@ -1,24 +1,65 @@
-.matchCard {
+.matchCardContainer {
   background-color: white;
   color: #00102e;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  width: 300pxs;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.5s ease-in-out;
+  flex: 1;
+  height: calc(100vh - 300px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.win {
+  animation: winAnim 1s ease-in-out;
+}
+
+.lose {
+  animation: loseAnim 1s ease-in-out;
+}
+
+@keyframes winAnim {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes loseAnim {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
 }
 
 .matchImage {
   width: 100%;
   height: auto;
-  max-width: 200px;
   min-width: 200px;
-  margin-bottom: 10px;
+  max-width: 200px;
   max-height: 200px;
 }
 
 .matchName {
   font-size: 16px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin: 8px 0 24px 0;
 }
