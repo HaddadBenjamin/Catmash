@@ -4,26 +4,33 @@ import MatchCard from "@/components/molecules/MatchCard";
 import { shuffle } from "@/shared/utils/array";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
-import { useEffect, useState } from "react";
 import useGetCats from "@/domains/cats/hooks/useGetCats";
-import { ICat } from "@/domains/cats/index.model";
+import useLocalStorage from "@/shared/hooks/useLocalStorage";
+import useCatRanks from "@/domains/cats/hooks/useCatRanks";
 
 export default function Home() {
   const router = useRouter();
-  const { data: initialCats, loading, error } = useGetCats();
-  const [cats, setCats] = useState<ICat[]>([]);
-  useEffect(() => {
-    setCats(initialCats?.images ?? []);
-  }, [initialCats]);
-
-  const onLike = (catPath: string) => {
+  const { cats, setCats, loading, error } = useGetCats();
+  const [catRanks, setCatRanks] = useCatRanks(cats ?? []);
+  const [matchPlayedCount, setMatchPlayedCount] = useLocalStorage(
+    "matchPlayed",
+    0
+  );
+  
+  const onLike = (catId: string) => {
     setCats(shuffle(cats));
-    // mettre à jour les votes pour le chat catPath ++
+    setMatchPlayedCount(matchPlayedCount + 1);
+    setCatRanks(
+      catRanks.map((rank) =>
+        rank.id === catId ? { ...rank, voteCount: rank.voteCount + 1 } : rank
+      )
+    );
   };
 
   return (
     <>
       <div className={styles.container}>
+        {JSON.stringify(catRanks)}
         <header className={styles.header}>
           <img src="/logo.png" alt="Logo" className={styles.logo} />
           <h1>CATMASH</h1>
@@ -39,11 +46,13 @@ export default function Home() {
               name="Chat 1"
               imagePath={cats.at(0)?.url ?? "/logo.png"}
               onLike={onLike}
+              id={cats.at(0)?.id ?? ""}
             />
             <MatchCard
               name="Chat 2"
-              imagePath={cats.at(-1)?.url ?? "/logo.png"}
+              imagePath={cats.at(1)?.url ?? "/logo.png"}
               onLike={onLike}
+              id={cats.at(1)?.id ?? ""}
             />
           </main>
         )}
@@ -54,8 +63,11 @@ export default function Home() {
             onClick={() => router.push("/classement")}
           >
             Voir le classement des chats
-            {/* Utiliser les données du local storage, par défault 0 */}
-            <span>X matchs joués</span>
+            <span>
+              {` ${matchPlayedCount} matchs joué${
+                matchPlayedCount > 0 ? "s" : ""
+              }`}
+            </span>
           </button>
         </footer>
       </div>

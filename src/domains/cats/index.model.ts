@@ -4,5 +4,10 @@ export interface ICat {
 }
 
 export interface ICatResponse {
-    images: ICat[]
+  images: ICat[];
+}
+
+export interface ICatRank {
+  id: string;
+  voteCount: number;
 }

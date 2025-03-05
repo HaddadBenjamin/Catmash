@@ -7,10 +7,11 @@ import styles from "./index.module.css";
 interface MatchCardProps {
   name: string;
   imagePath: string;
+  id: string;
   onLike: (imagePath: string) => void;
 }
 
-export default function MatchCard({ name, imagePath, onLike }: MatchCardProps) {
+export default function MatchCard({ name, imagePath, onLike, id }: MatchCardProps) {
   return (
     <div className={styles.matchCard}>
       <Image
@@ -22,7 +23,7 @@ export default function MatchCard({ name, imagePath, onLike }: MatchCardProps) {
         style={{ minHeight: "200px", width: "auto", objectFit: "cover" }}
       />
       <p className={styles.matchName}>{name}</p>
-      <Button onClick={() => onLike(imagePath)}>J’aime</Button>
+      <Button onClick={() => onLike(id)}>J’aime</Button>
     </div>
   );
 }
