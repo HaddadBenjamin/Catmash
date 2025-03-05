@@ -2,7 +2,6 @@
 
 import MatchCard from "@/components/molecules/MatchCard";
 import { shuffle } from "@/shared/utils/array";
-import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import useGetCats from "@/domains/cats/hooks/useGetCats";
 import useLocalStorage from "@/shared/hooks/useLocalStorage";
@@ -10,9 +9,9 @@ import useCatRanks from "@/domains/cats/hooks/useCatRanks";
 import Layout from "@/shared/components/Layout";
 import { useState } from "react";
 import Header from "@/shared/components/Header";
+import Footer from "@/shared/components/Footer";
 
 export default function Home() {
-  const router = useRouter();
   const { cats, setCats, loading, error } = useGetCats();
   const [catRanks, setCatRanks] = useCatRanks(cats ?? []);
   const [matchPlayedCount, setMatchPlayedCount] = useLocalStorage(
@@ -54,50 +53,32 @@ export default function Home() {
           `error: ${error}`
         ) : cats.length >= 2 ? (
           <main className={styles.matchContainer}>
-            <MatchCard
-              state={
-                !animatedCardId
-                  ? undefined
-                  : animatedCardId === cats.at(0)!.id
-                  ? "win"
-                  : "loose"
-              }
-              name="Chat 1"
-              imagePath={cats.at(0)!.url}
-              onLike={onLike}
-              id={cats.at(0)!.id}
-            />
-            <MatchCard
-              state={
-                !animatedCardId
-                  ? undefined
-                  : animatedCardId === cats.at(1)!.id
-                  ? "win"
-                  : "loose"
-              }
-              name="Chat 2"
-              imagePath={cats.at(1)!.url}
-              onLike={onLike}
-              id={cats.at(1)!.id}
-            />
+            {cats.slice(0, 2).map((cat, index) => (
+              <MatchCard
+                key={cat.id}
+                state={
+                  !animatedCardId
+                    ? undefined
+                    : animatedCardId === cat.id
+                    ? "win"
+                    : "loose"
+                }
+                name={`Chat ${index + 1}`}
+                imagePath={cat.url}
+                onLike={onLike}
+                id={cat.id}
+              />
+            ))}
           </main>
         ) : (
           "Il faut un minimum de chats pour voter"
         )}
 
-        <footer className={styles.footer}>
-          <button
-            className={styles.rankingButton}
-            onClick={() => router.push("/classement")}
-          >
-            Voir le classement des chats
-            <span>
-              {` ${matchPlayedCount} matchs joué${
-                matchPlayedCount > 0 ? "s" : ""
-              }`}
-            </span>
-          </button>
-        </footer>
+        <Footer
+          redirectTitle="Voir le classement des chats"
+          redirectPath="/classement"
+          matchPlayedCount={matchPlayedCount}
+        />
       </div>
     </Layout>
   );

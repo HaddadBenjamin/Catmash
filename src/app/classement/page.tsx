@@ -1,13 +1,13 @@
 "use client";
 
 import useCatRanks from "@/domains/cats/hooks/useCatRanks";
-import { Button } from "@/shared/components/designSystem/Button";
+import Footer from "@/shared/components/Footer";
 import Header from "@/shared/components/Header";
-import { useRouter } from "next/navigation";
+import useLocalStorage from "@/shared/hooks/useLocalStorage";
 
 export default function Home() {
-  const router = useRouter();
   const [catRanks] = useCatRanks([]);
+  const [matchPlayedCount] = useLocalStorage("matchPlayed", 0);
 
   return (
     <>
@@ -18,7 +18,11 @@ export default function Home() {
           .map(({ id, voteCount }) => (
             <div key={id}>{`${id}: ${voteCount}`}</div>
           ))}
-        <Button onClick={() => router.push("/")}>Button accueuil</Button>
+        <Footer
+          redirectTitle="Revenir au vote"
+          redirectPath="/"
+          matchPlayedCount={matchPlayedCount}
+        />
       </div>
     </>
   );

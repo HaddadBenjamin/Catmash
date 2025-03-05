@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/shared/components/designSystem/Button";
+import { Button } from "@/designSystem/components/Button";
 import Image from "next/image";
 import styles from "./index.module.css";
 import cn from "classnames";
