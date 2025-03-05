@@ -1,6 +1,5 @@
 "use client";
 
-import MatchCard from "@/components/molecules/MatchCard";
 import { shuffle } from "@/shared/utils/array";
 import styles from "./page.module.css";
 import useGetCats from "@/domains/cats/hooks/useGetCats";
@@ -10,6 +9,7 @@ import Layout from "@/shared/components/Layout";
 import { useState } from "react";
 import Header from "@/shared/components/Header";
 import Footer from "@/shared/components/Footer";
+import MatchCard from "@/domains/cats/components/MatchCard";
 
 export default function Home() {
   const { cats, setCats, loading, error } = useGetCats();

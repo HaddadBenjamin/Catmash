@@ -17,7 +17,7 @@ const ArrowTop = ({ width, height, fill, className }: Props) => (
     <path
       d="M.224 10.78l1.412 1.411L8 5.828l6.364 6.363 1.414-1.414L8 3z"
       fill="current"
-      fill-rule="evenodd"
+      fillRule="evenodd"
     ></path>
   </svg>
 );

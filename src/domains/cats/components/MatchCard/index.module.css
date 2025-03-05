@@ -8,11 +8,14 @@
   position: relative;
   transition: transform 0.5s ease-in-out;
   flex: 1;
-  height: calc(100vh - 300px);
+  height: calc(100vh - 345px);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border-radius: 8px;
+  border: 2px solid #00102e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .win {
@@ -56,6 +59,9 @@
   min-width: 200px;
   max-width: 200px;
   max-height: 200px;
+  border-radius: 8px;
+  border: 2px solid #00102e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .matchName {

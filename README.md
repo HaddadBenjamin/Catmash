@@ -1,7 +1,7 @@
 # Catmash
 
 Voter pour trouver le chat le plus mignon https://beni-catmash.netlify.app
-Expliqué que les données sont uniquement stockées sur le navigateur, il n'y a pas de back-end et donc si vous changer d'ordinateur, les résultats 
+Expliqué que les données sont uniquement stockées sur le navigateur, il n'y a pas de back-end et donc si vous changer d'ordinateur, les résultats
 Expliquer comment l'application fonctionne ?
 Mettre des images dees l'application
 
@@ -27,6 +27,10 @@ Qu'est-ce qui se passe quand on stress l'applicatio
 Modifier le titre de l'onglet en fonction des pages
 Simplfiier le code
 Utiliser des variables CSS ou SASS
-
+Créer un monorepo ?
+Créer les tets
+Animation de win ?
+Bonus: Storybook
+Quelques animations
 
 Mardi: 2hn
