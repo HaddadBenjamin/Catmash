@@ -1,4 +1,3 @@
-import cn from "classnames";
 import styles from "./index.module.css";
 import cardStyles from "@/styles/card.module.css";
 import { ICatRank } from "../../index.model";
