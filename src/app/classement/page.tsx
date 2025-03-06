@@ -21,33 +21,38 @@ const Classement = () => {
       <div className={cn(pageStyles.pageContainer, styles.container)}>
         <Header />
         <div className={styles.rankContainer}>
-          <div className={styles.topThreeContainer}>
-            <div className={cn(styles.item, styles.second)}>
-              <RankCard
-                key={sortedCatRanks[1].id}
-                {...sortedCatRanks[1]}
-                index={1}
-              />
+          {sortedCatRanks.length >= 3 && (
+            <div className={styles.topThreeContainer}>
+              <div className={cn(styles.item, styles.second)}>
+                <RankCard
+                  key={sortedCatRanks[1].id}
+                  {...sortedCatRanks[1]}
+                  index={1}
+                />
+              </div>
+              <div className={cn(styles.item, styles.first)}>
+                <RankCard
+                  key={sortedCatRanks[0].id}
+                  {...sortedCatRanks[0]}
+                  index={0}
+                />
+              </div>
+              <div className={cn(styles.item, styles.third)}>
+                <RankCard
+                  key={sortedCatRanks[2].id}
+                  {...sortedCatRanks[2]}
+                  index={2}
+                />
+              </div>
             </div>
-            <div className={cn(styles.item, styles.first)}>
-              <RankCard
-                key={sortedCatRanks[0].id}
-                {...sortedCatRanks[0]}
-                index={0}
-              />
-            </div>
-            <div className={cn(styles.item, styles.third)}>
-              <RankCard
-                key={sortedCatRanks[2].id}
-                {...sortedCatRanks[2]}
-                index={2}
-              />
-            </div>
-          </div>
+          )}
 
           <div className={styles.grid}>
             {sortedCatRanks.slice(3).map((rank, index) => (
-              <div className={styles.item} key={rank.id}>
+              <div
+                className={styles.item}
+                key={rank?.id ?? `rankCard-${index}`}
+              >
                 <RankCard {...rank} index={index + 3} />
               </div>
             ))}

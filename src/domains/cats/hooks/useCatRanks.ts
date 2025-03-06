@@ -1,10 +1,9 @@
 import useLocalStorage from "@/shared/hooks/useLocalStorage";
 import { ICat, ICatRank } from "../index.model";
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { useEffect } from "react";
 
-const useCatRanks = (
-  cats: ICat[]
-): [ICatRank[], Dispatch<SetStateAction<ICatRank[]>>] => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const useCatRanks = (cats: ICat[]): [ICatRank[], any] => {
   const [catRanks, setCatRanks] = useLocalStorage<ICatRank[]>("catRanks", []);
 
   useEffect(() => {

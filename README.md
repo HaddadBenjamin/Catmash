@@ -26,5 +26,7 @@ Quelques animations
 Modifier l'ordre des ranbks si on affiche que un élément sur le top three
 order by id aussi
 rename le css
+
+Temps utilisées :
 Mardi: 2h
 Mercredi: 3-4h
