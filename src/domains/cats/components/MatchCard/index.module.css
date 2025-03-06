@@ -1,3 +1,31 @@
+.card {
+  background-color: white;
+
+  color: #00102e;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+
+  padding: 20px;
+
+  position: relative;
+
+  border: 2px solid #00102e;
+  border-radius: 8px;
+
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+  height: calc(100vh - 345px);
+  min-height: fit-content;
+
+  transition: transform 0.5s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .win {
   animation: winAnim 1s ease-in-out;
 }
@@ -32,4 +60,3 @@
     opacity: 0;
   }
 }
-

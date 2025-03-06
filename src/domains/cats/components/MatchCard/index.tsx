@@ -24,7 +24,7 @@ export default function MatchCard({
   return (
     <div
       className={cn(
-        cardStyles.card,
+        styles.card,
         state === "win" && styles.win,
         state === "loose" && styles.lose
       )}

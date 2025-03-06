@@ -4,16 +4,22 @@
 
 .level {
   border-radius: 50%;
-  background-color: #00102e;
+
+  color: white;
   font-weight: bold;
   font-size: 16px;
+  
   height: 36px;
   width: 36px;
-  color: white;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-color: #00102e;
+
   border: 2px solid red;
+
   margin-bottom: 8px;
 }
 

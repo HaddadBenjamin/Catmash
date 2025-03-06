@@ -3,41 +3,45 @@
 }
 
 .rankContainer {
-  gap: 12px 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
+
   width: 100%;
 }
 
 .topThreeContainer {
   display: grid;
   grid-template-columns: 1fr 1.25fr 1fr;
-  gap: 12px 16px;
-  width: 100%;
   align-items: end;
+  gap: 12px 16px;
+
+  width: 100%;
 }
 
 .item {
   background: white;
+
   text-align: center;
-  padding: 20px;
   font-size: 18px;
   font-weight: bold;
-
   color: #00102e;
+
   padding: 20px;
+
   border: 2px solid #00102e;
   border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
   position: relative;
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
   min-height: fit-content;
 }
 
@@ -58,8 +62,9 @@
 
 .grid {
   display: grid;
-  gap: 12px 16px;
   grid-template-columns: repeat(4, 1fr);
+  gap: 12px 16px;
+
   width: 100%;
 }
 
@@ -70,6 +75,18 @@
 @media (max-width: 1070px) {
   .topThreeContainer {
     grid-template-columns: 1fr;
+  }
+
+  .first {
+    order: 1;
+  }
+
+  .second {
+    order: 2;
+  }
+
+  .third {
+    order: 3;
   }
 
   .first,

@@ -1,22 +1,30 @@
 .card {
   background-color: white;
+
   color: #00102e;
-  padding: 20px;
-  border-radius: 10px;
   text-align: center;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+  padding: 20px;
+
+  border-radius: 10px;
+
   position: relative;
+
   transition: transform 0.5s ease-in-out;
-  flex: 1;
-  height: calc(100vh - 345px);
+
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  flex: 1;
+
+  height: calc(100vh - 345px);
+  min-height: fit-content;
+
   border-radius: 8px;
   border: 2px solid #00102e;
+
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  min-height: fit-content;
 }
 
 .cardImage {
@@ -25,13 +33,16 @@
   min-width: 200px;
   max-width: 200px;
   max-height: 200px;
+
   border-radius: 8px;
   border: 2px solid #00102e;
+
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .cardName {
   font-size: 16px;
   font-weight: bold;
+
   margin: 8px 0 24px 0;
 }
